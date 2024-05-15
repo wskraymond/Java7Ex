@@ -1,0 +1,141 @@
+feedback on your performance is printed below. The report lists the objectives for which you answered a question incorrectly.
+
+Develop code that declares, initializes, and uses primitives, arrays, enums, and objects as static, instance, and local variables. Also, use legal identifiers for variable names.
+Develop code that implements all forms of loops and iterators, including the use of for, the enhanced for loop (for-each), do, while, labels, break, and continue; and explain the values taken by loop counter variables during and after loop execution.
+Develop code that implements an if or switch statement; and identify legal argument types for these statements.
+Develop code that makes proper use of type parameters in class/interface declarations, instance variables, method arguments, and return types; and write generic methods or methods that make use of wildcard types and understand the similarities and differences between these two approaches.
+Develop code that makes use of exceptions and exception handling clauses (try, catch, finally), and declares methods and overriding methods that throw exceptions.
+Develop code that uses the primitive wrapper classes (such as Boolean, Character, Double, Integer, etc.), and/or autoboxing & unboxing. Discuss the differences between the String, StringBuilder, and StringBuffer classes.
+Given a code example and a scenario, write code that uses the appropriate access modifiers, package declarations, and import statements to interact with (through access or inheritance) the code in the example.
+Given a scenario, develop code that declares and/or invokes overridden or overloaded methods and code that declares and/or invokes superclass or overloaded constructors.
+Given an example of a class and a command-line, determine the expected runtime behavior.
+Use capabilities in the java.util package to write code to manipulate a list by sorting, performing a binary search, or converting the list to an array. Use capabilities in the java.util package to write code to manipulate an array by sorting, performing a binary search, or converting the array to a list. Use the java.util.Comparator and java.lang.Comparable interfaces to affect the sorting of lists and arrays. Furthermore, recognize the effect of the "natural ordering" of primitive wrapper classes and java.lang.String on sorting.
+Write code that uses the generic versions of the Collections API, in particular, the Set, List, and Map interfaces and implementation classes. Recognize the limitations of the non-generic Collections API and how to refactor code to use the generic versions. Write code that uses the NavigableSet and NavigableMap interfaces.
+Write code to define, instantiate, and start new threads using both java.lang.Thread and java.lang.Runnable.
+
+
+=> Assessement 1
+1. StringBuffer - Q6 
+	- StringBuffer class:
+	The StringBuffer class doesn・t override the equals() method, so two
+	different StringBuffer objects with the same value will not be equal according to the
+	equals() method. On the other hand, the String class・s equals() method has been
+	overridden so that two different String objects with the same value will be considered
+	equal according to the equals() method.
+	
+	- Object Class : @@@@
+	The equals method for class Object implements the most discriminating possible equivalence relation on objects; 
+	that is, for any non-null reference values x and y, 
+	this method returns true if and only if x and y refer to the same object (x == y has the value true).
+2. Exception - Q7 @@@@
+	The class hierarchy
+	relationships between Throwable, Error, Exception, and RuntimeException
+	
+	=> All classes of Exception extend Throwable.
+	=> RuntimeExceptions need never be handled or declared.
+	
+3. Friends@XXXX (where XXXX is a representation of a hashcode) ????? -> Q8
+	- Object Class : @@@@
+		As much as is reasonably practical, the hashCode method defined by class Object does 
+		return distinct integers for distinct objects. (This is typically implemented 
+		by converting the internal address of the object into an integer, 
+		but this implementation technique is not required by the JavaTM programming language.)
+4. ArrayList<Cereal> c5 = new ArrayList<Flakes>(); => syntax error , Q9
+	Remark: generic type does not support "Generic Type's casting" - i.e Cereal
+5. printf() and format() have the same functionality.
+   System.out.printf(" %i", i);
+		%b	Boolean
+		%d	decimal (integer) number (base 10)
+		%f	floating-point number
+		%i	integer (base 10)
+6. new Jail().new Cell().slam(); -> ok , Q2
+7. Syntax error: cannot have two same name but with static and non-static -> Q3
+	e.g compilation error
+	public static void same(){
+		System.out.println("same");
+	}
+	
+	public void same(){
+		System.out.println("same");
+
+8. @@@@@@@@@@constructor chaining, superClass's counstructor -> subclasses' constructor call => Q10
+	It・s legal for abstract classes to have constructors, and it・s legal for a
+	constructor to be private. Normal constructor chaining is the result of this code.
+
+9. t1.setPriority(1) => small value : low priority ,Q12
+	}
+	
+	@@@Remark: becuase we can use same() with any owner(object or class) inside owner's method
+
+=> Assessement 2
+	
+1. Arrays.sort() , Arrays.binarySearch, Comparetor<T> => Q1
+VLA2[] va = {new VLA2(40), new VLA2(200), new VLA2(60)};
+Arrays.sort(va, va[0]);
+int index = Arrays.binarySearch(va, new VLA2(40), va[0]);
+index = Arrays.binarySearch(va, new VLA2(80), va[0]);
+
+2. File.pathSeparator & File.separator & File Path Reference => Q2
+	- File.pathSeparator: ; for window, : for linux
+	- File.separator: \ for window, / for linux
+	- File Path Reference: ???
+	
+3. Enum => Q4
+enum Weather {
+	RAINY, Sunny;
+	int count = 0;
+	Weather() {
+		System.out.print("c ");
+		count++;
+	}
+}
+
+4. NumberFormat & setMaximumFractionDigits => Q5
+	- Number parse(String s)
+	- String format(double or long)
+	 - java.text.ParseException: Unparseable number: "xyz" , if any digit at all
+	- java.lang.IllegalArgumentException : RunTimeException, 
+	
+5. static block & non-static block & contructor priority => Q7
+
+6. Thread.currentThread().getId(), throw new Error(); => Q8
+
+7. Wildcard/generic, Extend  => Q11
+	public class Carpet<V extends B> {
+	public <X extends V> Carpet<? extends V> method(Carpet<? super X> e) {
+		// insert code here
+	} }
+
+8. assert x == 1; && java -ea => Q12
+
+9. Thread.sleep(long millis) => Q14
+1 second = 1000 milliseconds
+
+10. Constructor can
+MyApp.java:30: error: cannot reference s before supertype constructor has been c
+alled
+                super(s);       //otherwise, default constructor of superclass
+
+
+11. Method-local inner classes can use variables from their enclosing => Q9
+methods, only if they are marked "final". A method-local inner class can be instantiated
+only after it has been declared. It is legal to use private members from the enclosing class.
+
+12. System.exit(1) in catch block => Q10
+
+
+13. private constructor & unsynchronized getInstance() => Q13
+As long as class BeSafe
+doesn・t use multiple threads, it can create only one instance of SafeDeposit. If BeSafe
+is multithreaded, it・s possible for SafeDeposit・s unsynchronized getInstance()
+method to return more than one instance of the class.
+
+14. for(;;)
+	- for(;;) , infinite loop (condition empty -> true)
+	- for(int i=0,j=0; i < 5; i++, j++) , initialization: declaration of the same type
+	- int i=0,j=0; for(i=0, System.out.println("A");.. ;..) //it is ok with no declaration
+
+15. PriorityQueue
+PriorityQueue class itself provides
+no non-destructive traversal methods.
+	
