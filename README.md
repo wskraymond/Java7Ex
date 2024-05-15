@@ -2,7 +2,9 @@
 
 
 1. What is the difference between a wildcard bound and a type parameter bound?
+
 A wildcard can have only one bound, while a type parameter can have several bounds.
+
 A wildcard can have a lower or an upper bound, while there is no such thing as a lower bound for a type parameter.
 
 http://www.angelikalanger.com/GenericsFAQ/FAQSections/TypeArguments.html#FAQ203
